@@ -89,7 +89,6 @@ const useCandyMachine = (
             umi,
             publicKey(candyMachineId)
           );
-          //verify CM Version
           if (candyMachine.version != AccountVersion.V2) {
             toast({
               id: "wrong-account-version",
@@ -148,11 +147,6 @@ const useCandyMachine = (
   return { candyMachine, candyGuard };
 };
 
-// const now = new Date();
-// now.setMinutes(now.getMinutes() + 500); // Add 5 minutes
-// const isoDate = now.toISOString(); // Convert to ISO 8601 format
-// console.log(isoDate);
-// ``;
 export default function Home() {
   const umi = useUmi();
   const solanaTime = useSolanaTime();
@@ -208,7 +202,6 @@ export default function Home() {
       });
       return publicKey("11111111111111111111111111111111");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const { candyMachine, candyGuard } = useCandyMachine(
     umi,
@@ -250,40 +243,55 @@ export default function Home() {
     };
 
     checkEligibilityFunc();
-    // On purpose: not check for candyMachine, candyGuard, solanaTime
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [umi, checkEligibility, firstRun]);
 
   const PageContent = () => {
     return (
       <>
-        <style jsx global>
-          {`
-            body {
-              background: #2d3748;
-            }
-          `}
-        </style>
-        <Card>
+        {/* spooky dark background */}
+        <style jsx global>{`
+          body {
+            background: #1a1a1a;
+          }
+        `}</style>
+
+        {/* glowing white mint card */}
+        <Card className="ui-card">
           <CardHeader>
-            <Flex minWidth="max-content" alignItems="center" gap="2">
+            <Flex minWidth="max-content" alignItems="top" gap="10">
               <Box>
-                <Heading size="md">{headerText}</Heading>
+                {/* spooky heading */}
+                <Heading
+                  size="md"
+                  className="headerText"
+                  style={{
+                    fontFamily: "'Shadow of the deads', cursive",
+                    textShadow: "0 0 10px #9dff8cff, 0 0 20px #9dff8cff",
+                  }}
+                >
+                  {headerText}
+                </Heading>
               </Box>
-              {loading ? (
-                <></>
-              ) : (
+              {!loading && (
                 <Flex justifyContent="flex-end" marginLeft="auto">
                   <Box
-                    background={"teal.100"}
+                    background="#9dff8cff;"
                     borderRadius={"5px"}
                     minWidth={"50px"}
                     minHeight={"50px"}
                     p={2}
                   >
                     <VStack>
-                      <Text fontSize={"sm"}>Available NFTs:</Text>
-                      <Text fontWeight={"semibold"}>
+                      <Text
+                        fontSize={"md"}
+                        style={{ fontFamily: "'Jolly Lodger', cursive", color: "black" }}
+                      >
+                        Available NFTs:
+                      </Text>
+                      <Text
+                        fontWeight={"semibold"}
+                        style={{ fontFamily: "'Jolly Lodger', cursive", color: "black" }}
+                      >
                         {Number(candyMachine?.data.itemsAvailable) -
                           Number(candyMachine?.itemsRedeemed)}
                         /{Number(candyMachine?.data.itemsAvailable)}
@@ -300,7 +308,7 @@ export default function Home() {
               <Box rounded={"lg"} mt={-12} pos={"relative"}>
                 <Image
                   rounded={"lg"}
-                  height={230}
+                  height={250}
                   objectFit={"cover"}
                   alt={"project Image"}
                   src={image}
@@ -332,46 +340,6 @@ export default function Home() {
             </Stack>
           </CardBody>
         </Card>
-        {umi.identity.publicKey === candyMachine?.authority ? (
-          <>
-            <Center>
-              <Button
-                backgroundColor={"red.200"}
-                marginTop={"10"}
-                onClick={onInitializerOpen}
-              >
-                Initialize Everything!
-              </Button>
-            </Center>
-            <Modal isOpen={isInitializerOpen} onClose={onInitializerClose}>
-              <ModalOverlay />
-              <ModalContent maxW="600px">
-                <ModalHeader>Initializer</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <InitializeModal
-                    umi={umi}
-                    candyMachine={candyMachine}
-                    candyGuard={candyGuard}
-                  />
-                </ModalBody>
-              </ModalContent>
-            </Modal>
-          </>
-        ) : (
-          <></>
-        )}
-
-        <Modal isOpen={isShowNftOpen} onClose={onShowNftClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Your minted NFT:</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <ShowNft nfts={mintsCreated} />
-            </ModalBody>
-          </ModalContent>
-        </Modal>
       </>
     );
   };
@@ -379,7 +347,7 @@ export default function Home() {
   return (
     <main>
       <div className={styles.wallet}>
-        <WalletMultiButtonDynamic />
+        <WalletMultiButtonDynamic className="connectButton" />
       </div>
 
       <div className={styles.center}>

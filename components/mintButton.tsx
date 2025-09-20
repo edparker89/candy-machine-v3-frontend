@@ -543,7 +543,8 @@ export function ButtonList({
     <Box key={index} marginTop={"20px"}>
       <Divider my="10px" />
       <HStack>
-        <Heading size="xs" textTransform="uppercase">
+        <Heading size="md" textTransform="uppercase" fontFamily="'Creepster', cursive"
+            color="black">
           {buttonGuard.header}
         </Heading>
         <Flex justifyContent="flex-end" marginLeft="auto">
@@ -579,7 +580,7 @@ export function ButtonList({
             )}
         </Flex>
       </HStack>
-      <SimpleGrid columns={2} spacing={5}>
+      <SimpleGrid columns={2} spacing={300}>
         <Text pt="2" fontSize="sm">
           {buttonGuard.mintText}
         </Text>
@@ -622,8 +623,8 @@ export function ButtonList({
                 )
               }
               key={buttonGuard.label}
-              size="sm"
-              backgroundColor="teal.100"
+              size="md"
+              backgroundColor="#9dff8cff;"
               isDisabled={!buttonGuard.allowed}
               isLoading={
                 guardList.find((elem) => elem.label === buttonGuard.label)

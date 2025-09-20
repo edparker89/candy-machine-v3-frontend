@@ -14,22 +14,34 @@ export const mintText = [
   //   header: "OG Mint",
   // },
   {
-    label: "public",
-    mintText: "Mint Paying with DEF",
+    label: "og",
+    mintText: "0.05 SOL",
     buttonLabel: "Mint now!",
-    header: "Public Mint",
+    header: "OG mint",
   },
   {
-    label: "default",
-    mintText: "default mintText",
+    label: "wl",
+    mintText: "0.1 SOL",
     buttonLabel: "Mint now!",
-    header: "Default",
+    header: "WL mint",
+  },
+  {
+    label: "team",
+    mintText: "0 SOL",
+    buttonLabel: "Mint now!",
+    header: "team mint",
+  },
+  {
+    label: "public",
+    mintText: "0.2 SOL",
+    buttonLabel: "Mint now!",
+    header: "Public mint",
   },
 ];
 
 //header image in the ui. replace with your own
 export const image =
-  "https://peach-smoggy-opossum-618.mypinata.cloud/ipfs/QmVZ2D1ZqStnQhpub5jEUAKftdkb5a7GUbqWXVzU8p9Eqd/0.png";
+  "https://gateway.irys.xyz/E9bdCfGQeDvbRkmDSUq4bEhfKtg5uu7cVqjpMSCjvPvj?ext=png";
 
 //website title
-export const headerText = "Test NFT";
+export const headerText = "KRYPTOKUNTS MINT UI";

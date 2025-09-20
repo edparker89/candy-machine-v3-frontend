@@ -6,10 +6,15 @@
 
 .center {
   position: relative;
-  padding: 3rem;
+  padding: 1rem;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
+  background: rgb(var(--ui-background-rgb));
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 25px rgba(3, 255, 189, 0.6); /* neon green glow */
+  font-family: var(--font-body);
+  color: #000;
 }
 
 .form > * + * {
@@ -23,18 +28,23 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  color: rgb(var(--on-accent-rgb));
-  background-color: rgb(var(--accent-rgb));
+  font-family: var(--font-buttons);
+  color: #f5f5f5;
+  background-color: #111;
   border: none;
   border-radius: var(--border-radius);
-  padding: 1rem;
-  font-size: 14px;
+  padding: 1rem 2rem;
+  font-size: 18px;
   font-weight: 600;
+  margin-left: auto; /* aligns right */
+  transition: all 0.3s ease;
 }
 
 .form button:hover {
   cursor: pointer;
-  background-color: rgb(var(--darker-accent-rgb));
+  background-color: #222;
+  color: #0f0; /* spooky green */
+  box-shadow: 0 0 12px rgba(3, 255, 189, 0.7);
 }
 
 .form button span {
@@ -48,11 +58,13 @@
 
 .field {
   display: block;
+  font-family: var(--font-body);
+  color: #000;
 }
 
 .field span {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .field input {
@@ -63,11 +75,12 @@
   border: 1px solid rgb(var(--tertiary-background-rgb));
   border-radius: var(--border-radius);
   background: rgb(var(--secondary-background-rgb));
-  color: rgb(var(--hint-rgb));
+  color: #000;
   font-size: 1rem;
   line-height: 1.5;
 }
 
+/* Loading */
 .loading {
   display: flex;
   flex-direction: row;
@@ -89,6 +102,7 @@
   }
 }
 
+/* Success */
 .success {
   cursor: pointer;
   display: flex;
@@ -100,6 +114,8 @@
   border: 1px solid rgb(var(--tertiary-background-rgb));
   border-radius: var(--border-radius);
   padding: 1rem;
+  font-family: var(--font-body);
+  color: #000;
 }
 
 .success > div {
