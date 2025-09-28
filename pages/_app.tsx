@@ -11,28 +11,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { image, headerText } from "settings";
 import { SolanaTimeProvider } from "@/utils/SolanaTimeContext";
 
-// === Fonts ===
-import localFont from "@next/font/local";
-import { Creepster, Jolly_Lodger } from "@next/font/google";
-
-// Google Fonts
-const creepster = Creepster({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-creepster",
-});
-
-const jollyLodger = Jolly_Lodger({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-jolly",
-});
-
-// Local font (Shadow of the deads)
-const shadow = localFont({
-  src: "../public/fonts/shadow-of-the-dead.ttf", // put file in public/fonts/
-  variable: "--font-shadow",
-});
+// 🎨 Fonts
+import { creepster, jollyLodger, shadow } from "@/utils/fonts/fonts";
 
 export default function App({ Component, pageProps }: AppProps) {
   let network = WalletAdapterNetwork.Devnet;
@@ -59,14 +39,20 @@ export default function App({ Component, pageProps }: AppProps) {
           property="og:description"
           content="Website is based on Mark Sackerbergs work"
         />
-        <meta name="description" content="Website is based on Mark Sackerbergs work" />
+        <meta
+          name="description"
+          content="Website is based on Mark Sackerbergs work"
+        />
         <meta property="og:image" content={image} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{headerText}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={`${creepster.variable} ${jollyLodger.variable} ${shadow.variable}`}>
+      {/* ✅ Fonts available globally */}
+      <main
+        className={`${creepster.variable} ${jollyLodger.variable} ${shadow.variable}`}
+      >
         <ChakraProvider>
           <WalletProvider wallets={wallets}>
             <UmiProvider endpoint={endpoint}>
