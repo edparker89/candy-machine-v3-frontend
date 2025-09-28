@@ -1,0 +1,144 @@
+.wallet { 
+  display: flex;
+  padding: 3rem;
+  flex-direction: row-reverse;
+}
+
+.center {
+  position: relative;
+  padding: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgb(var(--ui-background-rgb));
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 25px rgba(3, 255, 189, 0.6); /* neon green glow */
+  font-family: var(--font-body);
+  color: #000;
+}
+
+.form > * + * {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.form button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-buttons);
+  color: #f5f5f5;
+  background-color: #111;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 1rem 2rem;
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: auto; /* aligns right */
+  transition: all 0.3s ease;
+}
+
+.form button:hover {
+  cursor: pointer;
+  background-color: #222;
+  color: #0f0; /* spooky green */
+  box-shadow: 0 0 12px rgba(3, 255, 189, 0.7);
+}
+
+.form button span {
+  white-space: nowrap;
+}
+
+.form button svg {
+  width: 1rem;
+  fill: currentColor;
+}
+
+.field {
+  display: block;
+  font-family: var(--font-body);
+  color: #000;
+}
+
+.field span {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.field input {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-top: .5rem;
+  border: 1px solid rgb(var(--tertiary-background-rgb));
+  border-radius: var(--border-radius);
+  background: rgb(var(--secondary-background-rgb));
+  color: #000;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.loading svg {
+  width: 2rem;
+  height: 2rem;
+  color: rgb(var(--accent-rgb));
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success */
+.success {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  background: rgb(var(--secondary-background-rgb));
+  border: 1px solid rgb(var(--tertiary-background-rgb));
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  font-family: var(--font-body);
+  color: #000;
+}
+
+.success > div {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.success code {
+  font-family: var(--font-mono);
+  color: rgb(var(--secondary-foreground-rgb));
+}
+
+.success svg {
+  width: 2rem;
+  height: 2rem;
+  color: rgb(var(--accent-rgb));
+}
+
+.success:hover {
+  background-color: rgb(var(--hover-background-rgb));
+}
+
+.success:hover code {
+  color: rgb(var(--accent-rgb));
+}
