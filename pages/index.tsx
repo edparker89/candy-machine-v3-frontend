@@ -263,9 +263,8 @@ export default function Home() {
                 {/* spooky heading */}
                 <Heading
                   size="md"
-                  className="headerText"
                   style={{
-                    fontFamily: "'Shadow of the deads', cursive",
+                    fontFamily: "'Shadow of the Deads', cursive",
                     textShadow: "0 0 10px #7fbf6c, 0 0 20px #7fbf6c",
                   }}
                 >
@@ -281,17 +280,14 @@ export default function Home() {
                     minHeight={"50px"}
                     p={2}
                   >
-                    <VStack>
-                      <Text
-                        fontSize={"md"}
-                        style={{ fontFamily: "'Jolly Lodger', cursive", color: "black" }}
-                      >
-                        Available NFTs:
-                      </Text>
-                      <Text
-                        fontWeight={"semibold"}
-                        style={{ fontFamily: "'Jolly Lodger', cursive", color: "black" }}
-                      >
+                    <VStack
+                      style={{
+                        fontFamily: "'Jolly Lodger', cursive",
+                        color: "black",
+                      }}
+                    >
+                      <Text fontSize="md">Available NFTs:</Text>
+                      <Text fontWeight="semibold">
                         {Number(candyMachine?.data.itemsAvailable) -
                           Number(candyMachine?.itemsRedeemed)}
                         /{Number(candyMachine?.data.itemsAvailable)}
