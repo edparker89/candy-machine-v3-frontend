@@ -27,18 +27,11 @@ import {
   Text,
   Skeleton,
   useDisclosure,
-  Button,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  Image,
-  ModalHeader,
-  ModalOverlay,
   Box,
   Divider,
   VStack,
   Flex,
+  Image,
 } from "@chakra-ui/react";
 import { ButtonList } from "../components/mintButton";
 import { GuardReturn } from "../utils/checkerHelper";
@@ -274,10 +267,9 @@ export default function Home() {
               {!loading && (
                 <Flex justifyContent="flex-end" marginLeft="auto">
                   <Box
-                    background="#7fbf6c;"
+                    background="#7fbf6c"
                     borderRadius={"5px"}
-                    minWidth={"50px"}
-                    minHeight={"50px"}
+                    minWidth={"80px"}
                     p={2}
                   >
                     <VStack
@@ -343,7 +335,10 @@ export default function Home() {
   return (
     <main>
       <div className={styles.wallet}>
-        <WalletMultiButtonDynamic className="connectButton" />
+        <WalletMultiButtonDynamic
+          className="connectButton"
+          style={{ fontFamily: "'Creepster', cursive" }}
+        />
       </div>
 
       <div className={styles.center}>
