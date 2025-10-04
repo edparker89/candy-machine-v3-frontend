@@ -18,6 +18,7 @@ interface TraitProps {
 interface TraitsProps {
   metadata: JsonMetadata;
 }
+
 const Trait = ({ heading, description }: TraitProps) => {
   return (
     <Box
@@ -27,8 +28,15 @@ const Trait = ({ heading, description }: TraitProps) => {
       minHeight={"50px"}
     >
       <VStack>
-        <Text fontSize={"sm"}>{heading}</Text>
-        <Text fontSize={"sm"} marginTop={"-2"} fontWeight={"semibold"}>
+        <Text fontSize={"sm"} fontFamily="Jolly Lodger">
+          {heading}
+        </Text>
+        <Text
+          fontSize={"sm"}
+          marginTop={"-2"}
+          fontWeight={"semibold"}
+          fontFamily="Jolly Lodger"
+        >
           {description}
         </Text>
       </VStack>
@@ -41,7 +49,6 @@ const Traits = ({ metadata }: TraitsProps) => {
     return <></>;
   }
 
-  //find all attributes with trait_type and value
   const traits = metadata.attributes.filter(
     (a) => a.trait_type !== undefined && a.value !== undefined
   );
@@ -68,7 +75,6 @@ export default function Card({
 }: {
   metadata: JsonMetadata | undefined;
 }) {
-  // Get the images from the metadata if animation_url is present use this
   if (!metadata) {
     return <></>;
   }
@@ -84,10 +90,10 @@ export default function Card({
         backgroundSize="cover"
         backgroundImage={`url(${image})`}
       />
-      <Text fontWeight={"semibold"} marginTop={"15px"}>
+      <Text fontWeight={"semibold"} marginTop={"15px"} fontFamily="Jolly Lodger">
         {metadata.name}
       </Text>
-      <Text>{metadata.description}</Text>
+      <Text fontFamily="Jolly Lodger">{metadata.description}</Text>
       <Traits metadata={metadata} />
     </Box>
   );
@@ -104,11 +110,11 @@ export const ShowNft = ({ nfts }: Props) => {
     return <></>;
   }
 
-  const cards = nfts.map((nft, index) => (
+  const cards = nfts.map((nft) => (
     <AccordionItem key={nft.mint + "Accordion"}>
       <h2>
         <AccordionButton>
-          <Box as="span" flex="1" textAlign="left">
+          <Box as="span" flex="1" textAlign="left" fontFamily="Jolly Lodger">
             {nft.offChainMetadata?.name}
           </Box>
           <AccordionIcon />
@@ -119,8 +125,9 @@ export const ShowNft = ({ nfts }: Props) => {
       </AccordionPanel>
     </AccordionItem>
   ));
+
   return (
-    <Accordion defaultIndex={[0]} allowMultiple={true} >
+    <Accordion defaultIndex={[0]} allowMultiple={true}>
       {cards}
     </Accordion>
   );

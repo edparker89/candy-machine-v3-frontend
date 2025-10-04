@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 /* === Import spooky fonts === */
 @import url('https://fonts.googleapis.com/css2?family=Creepster&family=Jolly+Lodger&display=swap');
 @import url('https://db.onlinewebfonts.com/c/db0603146267fd97cb357d5c2807c44a?family=Shadow+of+the+deads');
 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Jolly+Lodger&display=swap');
+@import url('https://db.onlinewebfonts.com/c/db0603146267fd97cb357d5c2807c44a?family=Shadow+of+the+deads');
+
+/* === Import spooky fonts === */
+>>>>>>> f0b987a (ready to deploy mint ui)
 @font-face {
   font-family: "Shadow of the Deads";
   src: url("/fonts/shadow-of-the-dead.ttf") format("truetype");

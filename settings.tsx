@@ -15,13 +15,21 @@ export const mintText = [
   // },
   {
     label: "og",
+<<<<<<< HEAD
     mintText: "0.05 SOL",
+=======
+    mintText: "0.1 SOL",
+>>>>>>> f0b987a (ready to deploy mint ui)
     buttonLabel: "Mint now!",
     header: "OG mint",
   },
   {
     label: "wl",
+<<<<<<< HEAD
     mintText: "0.1 SOL",
+=======
+    mintText: "0.2 SOL",
+>>>>>>> f0b987a (ready to deploy mint ui)
     buttonLabel: "Mint now!",
     header: "WL mint",
   },
@@ -33,7 +41,11 @@ export const mintText = [
   },
   {
     label: "public",
+<<<<<<< HEAD
     mintText: "0.2 SOL",
+=======
+    mintText: "0.3 SOL",
+>>>>>>> f0b987a (ready to deploy mint ui)
     buttonLabel: "Mint now!",
     header: "Public mint",
   },

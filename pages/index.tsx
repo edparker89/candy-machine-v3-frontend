@@ -241,6 +241,7 @@ export default function Home() {
   const PageContent = () => {
     return (
       <>
+<<<<<<< HEAD
         {/* spooky dark background */}
         <style jsx global>{`
           body {
@@ -250,6 +251,16 @@ export default function Home() {
 
         {/* glowing white mint card */}
         <Card className="ui-card">
+=======
+        <style jsx global>
+          {`
+            body {
+              background: #1a1a1a;
+            }
+          `}
+        </style>
+        <Card>
+>>>>>>> f0b987a (ready to deploy mint ui)
           <CardHeader>
             <Flex minWidth="max-content" alignItems="top" gap="10">
               <Box>
@@ -328,6 +339,55 @@ export default function Home() {
             </Stack>
           </CardBody>
         </Card>
+<<<<<<< HEAD
+=======
+        {umi.identity.publicKey === candyMachine?.authority ? (
+          <>
+            <Center>
+              <Button
+                backgroundColor={"red.200"}
+                marginTop={"10"}
+                onClick={onInitializerOpen}
+              >
+                Initialize Everything!
+              </Button>
+            </Center>
+            <Modal isOpen={isInitializerOpen} onClose={onInitializerClose}>
+              <ModalOverlay />
+              <ModalContent maxW="600px">
+                <ModalHeader>Initializer</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <InitializeModal
+                    umi={umi}
+                    candyMachine={candyMachine}
+                    candyGuard={candyGuard}
+                  />
+                </ModalBody>
+              </ModalContent>
+            </Modal>
+          </>
+        ) : (
+          <></>
+        )}
+
+        <Modal isOpen={isShowNftOpen} onClose={onShowNftClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader
+              fontFamily="'Shadow of the Deads', sans-serif"
+              fontSize="2xl"
+            >
+              YOUR MINTED NFT
+            </ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <ShowNft nfts={mintsCreated} />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+
+>>>>>>> f0b987a (ready to deploy mint ui)
       </>
     );
   };

@@ -5,10 +5,18 @@ export const allowLists = new Map<string, Array<string>> ([
     [
       "6QFWQFiqHckYttKo3GZwdm7Xomuu2jP6Bs2JCSZheKuv",
       "2tkGQV54dFDyydR61TZV3pscPx6u2ZsPmFtijjU1GJPP",
+<<<<<<< HEAD
+=======
+      "3suq3cUMH12Hi3NRgENjcFgVbZjAStJc3Lo4WoFYK8bw",
+>>>>>>> f0b987a (ready to deploy mint ui)
     ]],
     ["og",
     [
       "3suq3cUMH12Hi3NRgENjcFgVbZjAStJc3Lo4WoFYK8bw",
+<<<<<<< HEAD
+=======
+      "HzgjJGdi4YwSF9AJFA4rFhRrUQ9pGWrsgWMEzRnLyfcA",
+>>>>>>> f0b987a (ready to deploy mint ui)
     ]],
     ["team",
     [

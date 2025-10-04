@@ -39,7 +39,11 @@ import {
   VStack,
   Divider,
   createStandaloneToast,
+<<<<<<< HEAD
   Spinner,
+=======
+  Spinner
+>>>>>>> f0b987a (ready to deploy mint ui)
 } from "@chakra-ui/react";
 import {
   fetchAddressLookupTable,
@@ -85,7 +89,7 @@ const fetchNft = async (umi: Umi, nftAdress: PublicKey) => {
     console.error(e);
     createStandaloneToast().toast({
       title: "Nft could not be fetched!",
-      description: "Please check your Wallet instead.",
+      description: "Please check your wallet instead.",
       status: "info",
       duration: 900,
       isClosable: true,
@@ -121,14 +125,25 @@ const mintClick = async (
 ) => {
   const guardToUse = chooseGuardToUse(guard, candyGuard);
   if (!guardToUse.guards) {
-    console.error("no guard defined!");
+    console.error("No guard defined!");
     return;
   }
 
+<<<<<<< HEAD
+=======
+  let buyBeer = false;
+  console.log("buyBeer",process.env.NEXT_PUBLIC_BUYMARKBEER )
+
+  if (process.env.NEXT_PUBLIC_BUYMARKBEER  === "false") {
+    buyBeer = false;
+    console.log("The Creator does not want to pay for MarkSackerbergs beer 😒");
+  }
+
+>>>>>>> f0b987a (ready to deploy mint ui)
   try {
     const guardIndex = guardList.findIndex((g) => g.label === guardToUse.label);
     if (guardIndex === -1) {
-      console.error("guard not found");
+      console.error("Guard not found");
       return;
     }
     const newGuardList = [...guardList];
@@ -278,8 +293,15 @@ const mintClick = async (
 
     await Promise.allSettled(sendPromises);
 
+<<<<<<< HEAD
+=======
+    if (!(await sendPromises[0]).status === true) {
+      // throw error that no tx was created
+      throw new Error("No tx was created");
+    }
+>>>>>>> f0b987a (ready to deploy mint ui)
     updateLoadingText(
-      `finalizing transaction(s)`,
+      `Finalizing transaction(s)`,
       guardList,
       guardToUse.label,
       setGuardList
@@ -352,6 +374,104 @@ const mintClick = async (
     updateLoadingText(undefined, guardList, guardToUse.label, setGuardList);
   }
 };
+<<<<<<< HEAD
+=======
+// new component called timer that calculates the remaining Time based on the bigint solana time and the bigint toTime difference.
+const Timer = ({
+  solanaTime,
+  toTime,
+  setCheckEligibility,
+}: {
+  solanaTime: bigint;
+  toTime: bigint;
+  setCheckEligibility: Dispatch<SetStateAction<boolean>>;
+}) => {
+  const [remainingTime, setRemainingTime] = useState<bigint>(
+    toTime - solanaTime
+  );
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRemainingTime((prev) => {
+        return prev - BigInt(1);
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  //convert the remaining time in seconds to the amount of days, hours, minutes and seconds left
+  const days = remainingTime / BigInt(86400);
+  const hours = (remainingTime % BigInt(86400)) / BigInt(3600);
+  const minutes = (remainingTime % BigInt(3600)) / BigInt(60);
+  const seconds = remainingTime % BigInt(60);
+  if (days > BigInt(0)) {
+    return (
+      <Text fontSize="md" fontWeight="bold">
+        {days.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        d{" "}
+        {hours.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        h{" "}
+        {minutes.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        m{" "}
+        {seconds.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        s
+      </Text>
+    );
+  }
+  if (hours > BigInt(0)) {
+    return (
+      <Text fontSize="md" fontWeight="bold">
+        {hours.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        h{" "}
+        {minutes.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        m{" "}
+        {seconds.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        s
+      </Text>
+    );
+  }
+  if (minutes > BigInt(0) || seconds > BigInt(0)) {
+    return (
+      <Text fontSize="md" fontWeight="bold">
+        {minutes.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        m{" "}
+        {seconds.toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        })}
+        s
+      </Text>
+    );
+  }
+  if (remainingTime === BigInt(0)) {
+    setCheckEligibility(true);
+  }
+  return <Text></Text>;
+};
+>>>>>>> f0b987a (ready to deploy mint ui)
 
 type Props = {
   umi: Umi;
@@ -445,7 +565,11 @@ export function ButtonList({
     <Box key={index} marginTop={"20px"}>
       <Divider my="10px" />
       <HStack>
+<<<<<<< HEAD
         <Heading
+=======
+        <Heading 
+>>>>>>> f0b987a (ready to deploy mint ui)
           size="md"
           textTransform="uppercase"
           fontFamily="'Creepster', cursive"
@@ -454,6 +578,7 @@ export function ButtonList({
           {buttonGuard.header}
         </Heading>
         <Flex justifyContent="flex-end" marginLeft="auto">
+<<<<<<< HEAD
   {/* Countdown until start */}
   {buttonGuard.startTime > solanaTime && (
     <>
@@ -478,6 +603,42 @@ export function ButtonList({
       </HStack>
       <SimpleGrid columns={2} spacing={300}>
         <Text pt="2" fontSize="sm" fontFamily="'Jolly Lodger', cursive">
+=======
+          {buttonGuard.endTime > createBigInt(0) &&
+            buttonGuard.endTime - solanaTime > createBigInt(0) &&
+            (!buttonGuard.startTime ||
+              buttonGuard.startTime - solanaTime <= createBigInt(0)) && (
+              <>
+                <Text fontSize="md" marginRight={"2"}>
+                  Ending in:{" "}
+                </Text>
+                <Timer
+                  toTime={buttonGuard.endTime}
+                  solanaTime={solanaTime}
+                  setCheckEligibility={setCheckEligibility}
+                />
+              </>
+            )}
+          {buttonGuard.startTime > createBigInt(0) &&
+            buttonGuard.startTime - solanaTime > createBigInt(0) &&
+            (!buttonGuard.endTime ||
+              solanaTime - buttonGuard.endTime <= createBigInt(0)) && (
+              <>
+                <Text fontSize="md" marginRight={"2"}>
+                  Starting in:{" "}
+                </Text>
+                <Timer
+                  toTime={buttonGuard.startTime}
+                  solanaTime={solanaTime}
+                  setCheckEligibility={setCheckEligibility}
+                />
+              </>
+            )}
+        </Flex>
+      </HStack>
+      <SimpleGrid columns={2} spacing={300}>
+        <Text pt="2" fontSize="md">
+>>>>>>> f0b987a (ready to deploy mint ui)
           {buttonGuard.mintText}
         </Text>
         <VStack>
@@ -485,8 +646,13 @@ export function ButtonList({
             <NumberInput
               value={numberInputValues[buttonGuard.label] || 1}
               min={1}
-              max={buttonGuard.maxAmount < 1 ? 1 : buttonGuard.maxAmount}
-              size="sm"
+              max={
+                Math.min(
+                  buttonGuard.maxAmount > 0 ? buttonGuard.maxAmount : 50, // guard limit (fallback 50 if guard didn’t set)
+                  parseInt(process.env.NEXT_PUBLIC_MAXMINTAMOUNT ?? "1")   // .env max
+                )
+              }
+              size="md"
               isDisabled={!buttonGuard.allowed}
               onChange={(valueAsString, valueAsNumber) =>
                 handleNumberInputChange(buttonGuard.label, valueAsNumber)
