@@ -32,6 +32,13 @@ import {
   VStack,
   Flex,
   Image,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
 } from "@chakra-ui/react";
 import { ButtonList } from "../components/mintButton";
 import { GuardReturn } from "../utils/checkerHelper";
@@ -241,17 +248,6 @@ export default function Home() {
   const PageContent = () => {
     return (
       <>
-<<<<<<< HEAD
-        {/* spooky dark background */}
-        <style jsx global>{`
-          body {
-            background: #1a1a1a;
-          }
-        `}</style>
-
-        {/* glowing white mint card */}
-        <Card className="ui-card">
-=======
         <style jsx global>
           {`
             body {
@@ -260,7 +256,6 @@ export default function Home() {
           `}
         </style>
         <Card>
->>>>>>> f0b987a (ready to deploy mint ui)
           <CardHeader>
             <Flex minWidth="max-content" alignItems="top" gap="10">
               <Box>
@@ -339,8 +334,6 @@ export default function Home() {
             </Stack>
           </CardBody>
         </Card>
-<<<<<<< HEAD
-=======
         {umi.identity.publicKey === candyMachine?.authority ? (
           <>
             <Center>
@@ -386,8 +379,6 @@ export default function Home() {
             </ModalBody>
           </ModalContent>
         </Modal>
-
->>>>>>> f0b987a (ready to deploy mint ui)
       </>
     );
   };

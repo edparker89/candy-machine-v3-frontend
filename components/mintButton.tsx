@@ -39,11 +39,7 @@ import {
   VStack,
   Divider,
   createStandaloneToast,
-<<<<<<< HEAD
-  Spinner,
-=======
   Spinner
->>>>>>> f0b987a (ready to deploy mint ui)
 } from "@chakra-ui/react";
 import {
   fetchAddressLookupTable,
@@ -58,7 +54,6 @@ import {
   buildTx,
   getRequiredCU,
 } from "../utils/mintHelper";
-import Timer from "./Timer";
 import { useSolanaTime } from "@/utils/SolanaTimeContext";
 import { verifyTx } from "@/utils/verifyTx";
 import { base58 } from "@metaplex-foundation/umi/serializers";
@@ -129,8 +124,6 @@ const mintClick = async (
     return;
   }
 
-<<<<<<< HEAD
-=======
   let buyBeer = false;
   console.log("buyBeer",process.env.NEXT_PUBLIC_BUYMARKBEER )
 
@@ -139,7 +132,6 @@ const mintClick = async (
     console.log("The Creator does not want to pay for MarkSackerbergs beer 😒");
   }
 
->>>>>>> f0b987a (ready to deploy mint ui)
   try {
     const guardIndex = guardList.findIndex((g) => g.label === guardToUse.label);
     if (guardIndex === -1) {
@@ -293,13 +285,10 @@ const mintClick = async (
 
     await Promise.allSettled(sendPromises);
 
-<<<<<<< HEAD
-=======
     if (!(await sendPromises[0]).status === true) {
       // throw error that no tx was created
       throw new Error("No tx was created");
     }
->>>>>>> f0b987a (ready to deploy mint ui)
     updateLoadingText(
       `Finalizing transaction(s)`,
       guardList,
@@ -374,8 +363,6 @@ const mintClick = async (
     updateLoadingText(undefined, guardList, guardToUse.label, setGuardList);
   }
 };
-<<<<<<< HEAD
-=======
 // new component called timer that calculates the remaining Time based on the bigint solana time and the bigint toTime difference.
 const Timer = ({
   solanaTime,
@@ -471,7 +458,6 @@ const Timer = ({
   }
   return <Text></Text>;
 };
->>>>>>> f0b987a (ready to deploy mint ui)
 
 type Props = {
   umi: Umi;
@@ -565,11 +551,7 @@ export function ButtonList({
     <Box key={index} marginTop={"20px"}>
       <Divider my="10px" />
       <HStack>
-<<<<<<< HEAD
-        <Heading
-=======
         <Heading 
->>>>>>> f0b987a (ready to deploy mint ui)
           size="md"
           textTransform="uppercase"
           fontFamily="'Creepster', cursive"
@@ -578,32 +560,6 @@ export function ButtonList({
           {buttonGuard.header}
         </Heading>
         <Flex justifyContent="flex-end" marginLeft="auto">
-<<<<<<< HEAD
-  {/* Countdown until start */}
-  {buttonGuard.startTime > solanaTime && (
-    <>
-      <Text fontSize="sm" mr="2" fontFamily="'Jolly Lodger', cursive">
-        Starts in:
-      </Text>
-      <Timer toTime={buttonGuard.startTime} solanaTime={solanaTime} />
-    </>
-  )}
-
-  {/* Countdown until end */}
-  {buttonGuard.endTime > solanaTime &&
-    (!buttonGuard.startTime || buttonGuard.startTime - solanaTime <= 0n) && (
-      <>
-        <Text fontSize="sm" mr="2" fontFamily="'Jolly Lodger', cursive">
-          Ending in:
-        </Text>
-        <Timer toTime={buttonGuard.endTime} solanaTime={solanaTime} />
-      </>
-    )}
-</Flex>
-      </HStack>
-      <SimpleGrid columns={2} spacing={300}>
-        <Text pt="2" fontSize="sm" fontFamily="'Jolly Lodger', cursive">
-=======
           {buttonGuard.endTime > createBigInt(0) &&
             buttonGuard.endTime - solanaTime > createBigInt(0) &&
             (!buttonGuard.startTime ||
@@ -638,7 +594,6 @@ export function ButtonList({
       </HStack>
       <SimpleGrid columns={2} spacing={300}>
         <Text pt="2" fontSize="md">
->>>>>>> f0b987a (ready to deploy mint ui)
           {buttonGuard.mintText}
         </Text>
         <VStack>
