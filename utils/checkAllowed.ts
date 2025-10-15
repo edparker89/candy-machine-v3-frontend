@@ -37,7 +37,7 @@ import {
   allocationChecker,
   calculateMintable,
 } from "./checkerHelper";
-import { allowLists } from "./../allowlist";
+import { allowLists } from "../allowlist";
 import {
   DigitalAssetWithToken,
   fetchAllDigitalAssetWithTokenByOwner,

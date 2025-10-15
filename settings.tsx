@@ -15,13 +15,13 @@ export const mintText = [
   // },
   {
     label: "og",
-    mintText: "0.1 SOL",
+    mintText: "0.05 SOL",
     buttonLabel: "Mint now!",
     header: "OG mint",
   },
   {
     label: "wl",
-    mintText: "0.2 SOL",
+    mintText: "0.1 SOL",
     buttonLabel: "Mint now!",
     header: "WL mint",
   },
@@ -33,7 +33,7 @@ export const mintText = [
   },
   {
     label: "public",
-    mintText: "0.3 SOL",
+    mintText: "0.15 SOL",
     buttonLabel: "Mint now!",
     header: "Public mint",
   },

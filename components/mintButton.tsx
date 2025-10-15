@@ -153,7 +153,7 @@ const mintClick = async (
       routeBuild = routeBuild.prepend(
         setComputeUnitPrice(umi, {
           microLamports: parseInt(
-            process.env.NEXT_PUBLIC_MICROLAMPORTS ?? "1001"
+            process.env.NEXT_PUBLIC_MICROLAMPORTS ?? "10"
           ),
         })
       );
@@ -514,7 +514,7 @@ export function ButtonList({
     return <></>;
   }
   if (filteredGuardlist.length > 1) {
-    filteredGuardlist = guardList.filter((elem) => elem.label != "default");
+     filteredGuardlist = guardList.filter((elem) => elem.label != "default");
   }
   let buttonGuardList = [];
   for (const guard of filteredGuardlist) {

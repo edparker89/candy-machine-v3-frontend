@@ -367,12 +367,12 @@ export const buildTx = (
         destination: publicKey(
           "BeeryDvghgcKPTUw3N3bdFDFFWhTWdWHnsLuVebgsGSD"
         ),
-        amount: sol(Number(0.005)),
+        amount: sol(Number(0.00001)),
       })
     );
   }
   tx = tx.prepend(setComputeUnitLimit(umi, { units }));
-  tx = tx.prepend(setComputeUnitPrice(umi, { microLamports: parseInt(process.env.NEXT_PUBLIC_MICROLAMPORTS ?? "1001") }));
+  tx = tx.prepend(setComputeUnitPrice(umi, { microLamports: parseInt(process.env.NEXT_PUBLIC_MICROLAMPORTS ?? "10") }));
   tx = tx.setAddressLookupTables(luts);
   tx = tx.setBlockhash(latestBlockhash);
   return tx.build(umi);
