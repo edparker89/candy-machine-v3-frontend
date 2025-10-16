@@ -44,20 +44,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Head>
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={headerText} />
-        <meta
-          property="og:description"
-          content="Website is based on Mark Sackerbergs work"
-        />
-        <meta name="description" content="Website is based on Mark Sackerbergs work" />
-        <meta property="og:image" content={image} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>KryptoKunts Mint</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className={`${creepster.variable} ${jollyLodger.variable}`}>
         <ChakraProvider>
           <WalletProvider wallets={wallets}>

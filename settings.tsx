@@ -41,7 +41,7 @@ export const mintText = [
 
 //header image in the ui. replace with your own
 export const image =
-  "https://gateway.irys.xyz/E9bdCfGQeDvbRkmDSUq4bEhfKtg5uu7cVqjpMSCjvPvj?ext=png";
+  "https://gateway.irys.xyz/oKojIKmXSfwnRD7UamZTGvEdPUuvrIllw36A-rTyGQQ?ext=png";
 
 //website title
 export const headerText = "KRYPTOKUNTS MINT UI";
