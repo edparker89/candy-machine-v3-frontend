@@ -1,5 +1,3 @@
-// trigger rebuild
-
 import { PublicKey, publicKey, Umi } from "@metaplex-foundation/umi";
 import {
   DigitalAssetWithToken,
